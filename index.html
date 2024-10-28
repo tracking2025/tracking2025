@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic URL Redirector</title>
+    <script>
+        // Function to handle redirection based on the URL parameter
+        function redirect() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetUrl = urlParams.get('url'); // Get the 'url' parameter
+            if (targetUrl) {
+                // Redirect to the specified URL
+                window.location.href = decodeURIComponent(targetUrl); // Decodes any special characters
+            } else {
+                document.body.innerHTML = "No URL parameter specified!";
+            }
+        }
+        // Call the redirect function when the page loads
+        window.onload = redirect;
+    </script>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+</body>
+</html>
